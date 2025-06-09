@@ -1,3 +1,6 @@
 [submodule "springboot"]
 	path = springboot
 	url = https://github.com/EwhaCapstone-X10/Server
+[submodule "ai_model"]
+	path = ai_model
+	url = https://github.com/EwhaCapstone-X10/AI
