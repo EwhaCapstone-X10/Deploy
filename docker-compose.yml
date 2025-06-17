@@ -1,5 +1,12 @@
 version: '3.8'
 
+# 로그 설정
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   spring:
     build:
@@ -11,6 +18,13 @@ services:
       - ai
     env_file:
       - .env
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512m
+    logging: *default-logging
+
 
   ai:
     build:
@@ -20,3 +34,9 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 768m
+    logging: *default-logging
